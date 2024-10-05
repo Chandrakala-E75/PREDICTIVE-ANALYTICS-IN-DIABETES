@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  body {
+    background-image: url('/static/images/image1.jpg');
+    background-size: 99%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+  }
+</style>
+<h2>Login</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+    <button type="submit">Login</button>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</form>
+{% endblock %}

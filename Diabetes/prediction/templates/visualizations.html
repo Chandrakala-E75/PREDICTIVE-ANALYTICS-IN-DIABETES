@@ -1,0 +1,30 @@
+{% extends 'analysis_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Data Visualisation</h1>
+    <div class="visualization">
+        <h2>Data Distribution Before Imputing Missing Values</h2>
+        <img src="{% static 'images/data_distribution_before.png' %}" alt="Data Distribution Before">
+    </div>
+    <div class="visualization">
+        <h2>Data Distribution After Imputing Missing Values</h2>
+        <img src="{% static 'images/data_distribution_after.png' %}" alt="Data Distribution After">
+    </div>
+    <div class="visualization">
+        <h2>Outcome Prediction Distribution</h2>
+        <img src="{% static 'images/outcome_distribution.png' %}" alt="Outcome Prediction Distribution">
+    </div>
+    <div class="visualization">
+        <h2>Distribution and Outliers of Insulin</h2>
+        <img src="{% static 'images/insulin_distribution.png' %}" alt="Distribution and Outliers of Insulin">
+    </div>
+    <div class="visualization">
+        <h2>Correlation Matrix</h2>
+        <img src="{% static 'images/correlation_matrix.png' %}" alt="Correlation Matrix">
+    </div>
+    <div class="next-button">
+    <a href="{% url 'prediction_results' %}">Next</a>
+    </div>
+{% endblock %}

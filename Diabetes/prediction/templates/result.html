@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Prediction Result</h2>
+<p>Your prediction result is: {{ result }}</p>
+<p>Probability: {{ probability }}%</p>
+
+{% if result == 'Positive' %}
+    <p>Based on the prediction, there is a high chance that you have diabetes. Please consult a healthcare professional for further tests and guidance.</p>
+    <!--<p>Here are some nearby hospitals with diabetes specialists:</p>
+    <ul>
+        <li>Hospital A - Address, Contact</li>
+        <li>Hospital B - Address, Contact</li>
+        <li>Hospital C - Address, Contact</li>
+    </ul>-->
+{% else %}
+    <p>Based on the prediction, you are unlikely to have diabetes. However, maintaining a healthy lifestyle is important. If you have any concerns, please consult a healthcare professional.</p>
+{% endif %}
+
+{% endblock %}

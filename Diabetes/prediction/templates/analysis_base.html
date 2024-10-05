@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Analysis</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ana_base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/analysis_result.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/visualization.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pre_result.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'upload_dataset' %}">Upload Dataset</a></li>
+                <li><a href="{% url 'profile' %}">My Profile</a></li>
+                <li><a href="{% url 'predict' %}">Diabetes Prediction</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'analysis_base.html' %}
+
+{% block content %}
+   <h1>Prediction Results</h1>
+
+    {% for model, accuracy in accuracies.items %}
+        <div class="algorithm">
+            <h2>{{ model }}</h2>
+            <ul>
+                <li>Training Accuracy: {{ accuracy.training_accuracy|floatformat:2 }}%</li>
+                <li>Testing Accuracy: {{ accuracy.testing_accuracy|floatformat:2 }}%</li>
+            </ul>
+        </div>
+    {% endfor %}
+
+    <div class="chart-container">
+        <h2>Combined Accuracy Chart</h2>
+        <img src="data:image/png;base64,{{ combined_chart }}" alt="Combined Accuracy Chart">
+    </div>
+{% endblock %}
+

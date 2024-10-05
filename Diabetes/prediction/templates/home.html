@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+ body {
+    background-image: url('/static/images/image1.jpg');
+    background-size: 99%; /* Adjust percentage to control zoom level */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+
+</style>
+
+<h1 style="font-size:35px;"> Diabetes Prediction </h1>
+<p style="font-size:20px;">Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to use the service.</p>
+
+{% endblock %}

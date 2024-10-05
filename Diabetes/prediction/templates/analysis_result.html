@@ -1,0 +1,67 @@
+<!-- analysis_result.html -->
+{% extends 'analysis_base.html' %}
+
+{% block content %}
+<div class="eda-container">
+    <h1>Exploratory Data Analysis (EDA)</h1>
+
+    <div class="eda-section">
+        <h2>Column Names</h2>
+        <ul>
+            {% for column in column_names %}
+                <li>{{ column }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="eda-section">
+        <h2>Top 10 Rows</h2>
+        <div class="table-container">
+            {{ head|safe }}
+        </div>
+    </div>
+
+    <div class="eda-section">
+        <h2>Dimensions</h2>
+        <p>{{ dimensions }}</p>
+    </div>
+
+  <!--  <div class="eda-section">
+        <h2>Info</h2>
+        <pre>{{ info }}</pre>
+    </div>-->
+
+    <div class="eda-section">
+        <h2>Description</h2>
+        <div class="table-container">
+            {{ describe|safe }}
+        </div>
+    </div>
+
+    <div class="eda-section">
+        <h2>Missing Values</h2>
+        <div class="table-container">
+            {{ missing_values|safe }}
+        </div>
+    </div>
+
+    <div class="eda-section">
+        <h2>Missing Values After Handling</h2>
+        <div class="table-container">
+            {{ missing_values_after_handling|safe }}
+        </div>
+    </div>
+
+    <div class="button-container">
+        <form action="{% url 'analysis_result' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="dataset_id" value="{{ dataset_id }}">
+            <button type="submit" class="btn">See the Result</button>
+        </form>
+
+        <form action="{% url 'visualizations' %}" method="get">
+            <button type="submit" class="btn">Next</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
